@@ -3,8 +3,9 @@ node_modules/*
 npm-debug.log
 
 # TypeScript
-dist/*.js
-dist/**/*.js
+dist/
+out-tsc/
+storybook-static/
 *.map
 *.d.ts
 

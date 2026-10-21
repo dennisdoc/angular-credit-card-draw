@@ -1,22 +1,17 @@
-import { Component,Input } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
-@Component({ 
+@Component({
 	selector: 'card-draw',
-	templateUrl:'./card.html' 
+	templateUrl: './card.html',
+	standalone: true
 })
-export class CardDraw{
-	@Input() number: string;
-	@Input() name: string;
-	@Input() expiration:string;
-	@Input() ccv:string;
-	@Input() background:string;
-	@Input() height:string;
-	@Input() width:string;
-	@Input() toggle:boolean;
-	
-
-
-    constructor() {
-
-    }
+export class CardDraw {
+	@Input() number = '';
+	@Input() name = '';
+	@Input() expiration = '';
+	@Input() ccv = '';
+	@Input() background = '';
+	@Input() height = '';
+	@Input() width = '';
+	@Input() toggle = false;
 }
