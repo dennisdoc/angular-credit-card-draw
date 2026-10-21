@@ -1,20 +1,15 @@
 {
   "compilerOptions": {
-    "noImplicitAny": true,
-    "module": "commonjs",
-    "target": "ES5",
-    "emitDecoratorMetadata": true,
+    "target": "ES2022",
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "skipLibCheck": true,
     "experimentalDecorators": true,
-    "sourceMap": true,
-    "declaration": true,
-    "outDir": "./dist"
+    "importHelpers": true,
+    "declaration": true
   },
-  "files": [
-    "typings/index.d.ts",
-    "index.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+  "angularCompilerOptions": {
+    "strictTemplates": true
+  }
 }

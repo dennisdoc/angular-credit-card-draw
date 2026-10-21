@@ -1,16 +1,10 @@
 {
   "name": "angular2-credit-card-draw",
-  "version": "1.0.8",
-  "scripts": {
-    "lint": "tslint src/**/*.ts",
-    "test": "tsc && karma start",
-    "prepublish": "tsc",
-    "tsc": "tsc",
-    "typings": "typings"
-  },
+  "version": "2.0.0",
+  "description": "A customizable credit card component for Angular",
   "repository": {
     "type": "git",
-    "url": "git@github.com:dennisdoc/angular2-credit-card-draw.git"
+    "url": "git+https://github.com/dennisdoc/angular2-credit-card-draw.git"
   },
   "author": {
     "name": "Dennis Oliveira Cremasco",
@@ -22,26 +16,39 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "git@github.com:dennisdoc/angular2-credit-card-draw.git/issues"
+    "url": "https://github.com/dennisdoc/angular2-credit-card-draw/issues"
   },
-  "main": "./dist/index.js",
-  "typings": "./dist/index.d.ts",
-  "dependencies": {
-    "gulp": "^3.9.1",
-    "gulp-inline-ng2-template": "^4.0.0"
+  "scripts": {
+    "build": "ng-packagr -p ng-package.json",
+    "pack": "npm run build && npm pack ./dist/angular2-credit-card-draw",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "peerDependencies": {
+    "@angular/common": "^21.0.0",
+    "@angular/core": "^21.0.0",
+    "rxjs": "^7.4.0"
   },
   "devDependencies": {
-    "@angular/common": "^2.0.0",
-    "@angular/core": "^2.0.0",
-    "codelyzer": "^2.0.0-beta.4",
-    "gulp-angular-embed-templates": "^2.3.0",
-    "rxjs": "5.0.0-beta.12",
-    "tslint": "^3.15.1",
-    "typescript": "^2.0.0",
-    "typings": "^1.0.4",
-    "zone.js": "0.6.23"
+    "@angular/common": "^21.0.0",
+    "@angular/animations": "^21.0.0",
+    "@angular/build": "^21.0.0",
+    "@angular/cli": "^21.0.0",
+    "@angular/compiler": "^21.0.0",
+    "@angular/compiler-cli": "^21.0.0",
+    "@angular/core": "^21.0.0",
+    "@angular/platform-browser": "^21.0.0",
+    "@analogjs/vite-plugin-angular": "^2.9.1",
+    "@storybook/addon-docs": "^10.6.3",
+    "@storybook/angular-vite": "^10.6.3",
+    "storybook": "^10.6.3",
+    "vite": "^8.0.0",
+    "ng-packagr": "^21.0.0",
+    "rxjs": "^7.4.0",
+    "tslib": "^2.3.0",
+    "typescript": "~5.9.2"
   },
   "engines": {
-    "node": ">=0.8.0"
+    "node": "^20.19.0 || ^22.12.0 || >=24.0.0"
   }
 }

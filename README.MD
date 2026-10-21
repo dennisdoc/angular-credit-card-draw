@@ -1,88 +1,131 @@
 # angular2-credit-card-draw
 
-##Live Demo
-https://plnkr.co/edit/8kiEx9ZXOZsDJB2CAtcp?p=preview
+A customizable, animated credit card preview component for Angular.
 
-## Installation
+## Angular version and upgrade notes
 
-To install this library, run:
+This release uses Angular 21 and is distributed as a compiled Angular library.
+It requires Angular `^21.0.0` (`@angular/core` and `@angular/common`) and RxJS
+`^7.4.0`. Use a Node.js version supported by Angular 21 when developing or
+building the library.
+
+The Angular 2-era Gulp, Typings, and TSLint build has been replaced with
+`ng-packagr` and the Angular Package Format. The `CardDraw` selector and its
+existing input names are retained. `CardDraw` is now standalone and can be
+imported directly; `CardModule` is still exported for applications that use
+NgModules.
+
+Install the package in an Angular 21 application:
 
 ```bash
-$ npm install angular2-credit-card-draw --save
+npm install angular2-credit-card-draw
 ```
 
-## Consuming your library
+## Features
 
-Once you have published your library to npm, you can import your library in any Angular application by running:
+- Renders the front and back of a credit card, including cardholder name,
+  number, expiry date, and security code.
+- Flips between sides on hover or when controlled with the `toggle` input.
+- Accepts card face dimensions and a custom CSS background.
+- Provides a standalone component and an NgModule-compatible wrapper.
+- Includes Storybook stories with interactive controls for local development.
 
-```bash
-$ npm install angular2-credit-card-draw
-```
+This component only displays the values supplied to it; it does not validate,
+store, or process payment details.
 
-and then from your Angular `AppModule`:
+## Component inputs
+
+| Input | Type | Default | Description |
+| --- | --- | --- | --- |
+| `name` | `string` | `''` | Cardholder name shown on the front. |
+| `number` | `string` | `''` | Card number shown on the front. |
+| `expiration` | `string` | `''` | Expiration text shown on the front, for example `12/29`. |
+| `ccv` | `string` | `''` | Security code shown on the back. |
+| `background` | `string` | `''` | CSS background value for both card faces. When empty, the built-in gradient is used. |
+| `width` | `string` | `''` | CSS width for the card faces, for example `400px`. |
+| `height` | `string` | `''` | CSS height for the card faces, for example `250px`. |
+| `toggle` | `boolean` | `false` | Set to `true` to show the back; the card also flips when hovered. |
+
+## Standalone component usage
+
+Import `CardDraw` into a standalone component's `imports`:
 
 ```typescript
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {Component} from '@angular/core';
+import {CardDraw} from 'angular2-credit-card-draw';
 
-import { AppComponent } from './app.component';
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [CardDraw],
+  template: `
+    <card-draw
+      [width]="'400px'"
+      [height]="'250px'"
+      [background]="'#1a1f71'"
+      [name]="cardholder"
+      [number]="cardNumber"
+      [expiration]="expiration"
+      [ccv]="securityCode"
+      [toggle]="showBack">
+    </card-draw>
+  `
+})
+export class AppComponent {
+  cardholder = 'Emma Watson';
+  cardNumber = '1234 1234 1234 1234';
+  expiration = '12/29';
+  securityCode = '999';
+  showBack = false;
+}
+```
 
-// Import your library
-import { CardDraw } from 'angular2-credit-card-draw';
+Set `showBack` to `true` to display the back of the card. Hovering the card
+also flips it.
+
+## NgModule usage
+
+For an NgModule-based application, import `CardModule` in the module that uses
+the `<card-draw>` element:
+
+```typescript
+import {NgModule} from '@angular/core';
+import {CardModule} from 'angular2-credit-card-draw';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-
-    // Specify your library as an import
-    LibraryModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [CardModule]
 })
-export class AppModule { }
+export class AppModule {}
 ```
 
-Once your library is imported, you can use its components, directives and pipes in your Angular application:
+## Development and Storybook
 
-```typescript
-atributes:{
-  background:'blue',
-  name:'Emma Watson',
-  number:'1234 1234 1234 1234',
-  ccv:'999',
-  expiration:'99/99',
-  height:450px,
-  width:450px
-}
-
-```
-it has a toogle atribute, which u can bind [toggle]="booleanValue" to control which part of the card to show (front or back)
-```xml
-<!-- You can now use your library component in app.component.html -->
-<h1>
-  {{title}}
-</h1>
-<card-draw [width]="atributes.width" [height]="atributes.height" [ccv]="atributes.ccv" [background]="atributes.background" [expiration]="atributes.expiration" [name]="atributes.name" [number]="atributes.number" >
-</card-draw>
-```
-
-## Development
-
-To generate all `*.js`, `*.js.map` and `*.d.ts` files:
+Install the development dependencies and start Storybook:
 
 ```bash
-$ npm run tsc
+npm install
+npm run storybook
 ```
 
-To lint all `*.ts` files:
+Open `http://localhost:6006` to preview the **Front** and **Back** stories.
+Use the Controls panel to edit the component inputs. Build a static Storybook
+site with:
 
 ```bash
-$ npm run lint
+npm run build-storybook
 ```
+
+Build the distributable Angular package with:
+
+```bash
+npm run build
+```
+
+The package output is written to `dist/angular2-credit-card-draw`.
+
+## Live demo
+
+https://plnkr.co/edit/8kiEx9ZXOZsDJB2CAtcp?p=preview
 
 ## License
 

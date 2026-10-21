@@ -1,0 +1,10 @@
+{
+  "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "./dist/angular2-credit-card-draw",
+  "lib": {
+    "entryFile": "src/public-api.ts"
+  },
+  "assets": [
+    "README.MD"
+  ]
+}
