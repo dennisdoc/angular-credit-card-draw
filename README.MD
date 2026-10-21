@@ -1,4 +1,4 @@
-# angular2-credit-card-draw
+# angular-credit-card-draw
 
 A customizable, animated credit card preview component for Angular.
 
