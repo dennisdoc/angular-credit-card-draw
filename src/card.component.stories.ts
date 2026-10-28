@@ -13,13 +13,15 @@ const meta: Meta<CardDraw> = {
     background: '#1a1f71',
     height: '250px',
     width: '400px',
-    toggle: false
+    toggle: false,
+    hideBrandLogo: false
   },
   argTypes: {
     background: {control: 'color'},
     height: {control: 'text'},
     width: {control: 'text'},
-    toggle: {control: 'boolean'}
+    toggle: {control: 'boolean'},
+    hideBrandLogo: {control: 'boolean'}
   }
 };
 
