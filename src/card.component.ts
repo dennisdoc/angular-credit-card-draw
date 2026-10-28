@@ -14,4 +14,5 @@ export class CardDraw {
 	@Input() height = '';
 	@Input() width = '';
 	@Input() toggle = false;
+	@Input() hideBrandLogo = false;
 }

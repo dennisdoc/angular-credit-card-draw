@@ -4,7 +4,7 @@
 	    <div class="flip">
 	      <div [style.width]="width" [style.height]="height" [style.background]="background" class="front">
 	        <div class="chip"></div>
-	        <div class="logo">
+	        <div class="logo" [hidden]="hideBrandLogo">
 	          <svg version="1.1" id="visa" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	               width="47.834px" height="47.834px" viewBox="0 0 47.834 47.834" style="enable-background:new 0 0 47.834 47.834;">
 	            <g>
@@ -37,7 +37,7 @@
 	      </div>
 	      <div [style.width]="width" [style.height]="height" [style.background]="background" class="back">
 	        <div class="strip"></div>
-	        <div class="logo">
+	        <div class="logo" [hidden]="hideBrandLogo">
 	          <svg version="1.1" id="visa" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	               width="47.834px" height="47.834px" viewBox="0 0 47.834 47.834" style="enable-background:new 0 0 47.834 47.834;">
 	            <g>

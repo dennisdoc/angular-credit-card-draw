@@ -45,6 +45,7 @@ store, or process payment details.
 | `width` | `string` | `''` | CSS width for the card faces, for example `400px`. |
 | `height` | `string` | `''` | CSS height for the card faces, for example `250px`. |
 | `toggle` | `boolean` | `false` | Set to `true` to show the back; the card also flips when hovered. |
+| `hideBrandLogo` | `boolean` | `false` | Set to `true` to hide the card-network logo (for example, Visa) on both card faces. |
 
 ## Standalone component usage
 
@@ -67,6 +68,7 @@ import {CardDraw} from 'angular2-credit-card-draw';
       [number]="cardNumber"
       [expiration]="expiration"
       [ccv]="securityCode"
+      [hideBrandLogo]="true"
       [toggle]="showBack">
     </card-draw>
   `
